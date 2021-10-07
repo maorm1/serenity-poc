@@ -1,4 +1,4 @@
-package com.maor.serenitypoc.data;
+package com.maor.serenitypoc.config;
 
 import org.h2.tools.Server;
 import org.springframework.context.annotation.Bean;
