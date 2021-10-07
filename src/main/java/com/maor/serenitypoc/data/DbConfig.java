@@ -1,4 +1,4 @@
-package com.maor.serenitypoc.db;
+package com.maor.serenitypoc.data;
 
 import org.h2.tools.Server;
 import org.springframework.context.annotation.Bean;
