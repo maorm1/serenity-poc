@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,22 @@ public class UsersRepository {
 	private final JdbcTemplate jdbcTemplate;
 
 	public List<User> getAllUsers() {
+		return getUsers(null);
+	}
+
+	public User getUser(long userId) {
+		List<User> users = getUsers(userId);
+		if (CollectionUtils.isEmpty(users)) {
+			return null;
+		}
+		return (users.get(0));
+	}
+
+	public List<User> getUsers(Long userId) {
 		String query = "select * from USERS";
+		if (userId != null) {
+			query += " where ID = " + userId;
+		}
 		List<User> users = jdbcTemplate.query(query, USER_ROW_MAPPER);
 		users.forEach(user -> user.setUserRights(getAllUserRightsForUserId(user.getId())));
 		return users;
