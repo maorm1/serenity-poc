@@ -16,7 +16,7 @@ public class UsersController {
 
 	private final UsersRepository usersRepository;
 
-	@GetMapping()
+	@GetMapping
 	public List<User> getUsers() {
 		return usersRepository.getAllUsers();
 	}
