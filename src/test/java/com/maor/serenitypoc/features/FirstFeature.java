@@ -20,7 +20,6 @@ public class FirstFeature {
 	private Actor bill = Actor.named("Bill the Second"); // Has "use feature" user-right disabled
 
 	@Test
-
 	public void whatINeedToTestPositive() {
 		// given that bob can call an api at featureUrl
 		// and that bob has the "use feature" user-right enabled
@@ -30,6 +29,7 @@ public class FirstFeature {
 		// then bob should see that response status 200
 	}
 
+	@Test
 	public void whatINeedToTestNegative() {
 		// given that bill can call an api at featureUrl
 		// and that bill DOES NOT have the "use feature" user-right enabled
